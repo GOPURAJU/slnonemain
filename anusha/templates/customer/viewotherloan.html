@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profiles List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ],
+                responsive: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 style="text-align: center;">Other loan Profiles List</h2>
+        <table id="example" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Applicant ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>State</th>
+                    <th>Pincode</th>
+                    <th>Date of birth</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for profile in customer_profiles %}
+                <tr>
+                    <td>{{ profile.id }}</td>
+                    <td>{{ profile.otherbasicdetail.application_id }}</td>
+                    <td>{{ profile.Full_name }}</td>
+                    <td>{{ profile.email }}</td>
+                    <td>{{ profile.mobile_number }}</td>
+                    <td>{{ profile.state }}</td>
+                    <td>{{ profile.pincode }}</td>
+                    <td>{{ profile.date_of_birth|date:"d-m-y" }}</td>
+                    <td>{{ profile.created_at|date:"d-m-y"}}</td>
+
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        &nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary" onclick="window.history.back();">Back</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

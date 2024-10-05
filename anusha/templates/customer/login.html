@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    button{
+        padding:10px;
+        background-color: royalblue;
+        color: white;
+        border:none;
+        border-radius: 5px;
+        margin-top:20px;
+        padding:13px ;
+    }
+    h1{
+        background-color: #0a8088;
+        color: #0d0c04;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    table{
+        padding: 30px 30px 30px 30px;
+        background-color: #0a8088;;
+        color: #111110;
+        
+    }
+</style>
+</head>
+<body>
+    <script>
+        window.addEventListener('beforeunload', function(event) {
+            // Perform actions before the page is unloaded
+        });
+    </script>
+    <h1>Admin Login Page</h1>
+    <center>
+    
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+        
+            <table style="font-size: 20px;">
+           
+            <tr>
+                <td><label for="username">UserName</label></td>
+                <td><input type="text"  name="username" required placeholder="Enter the username"  autocomplete="off" style="height: 30px;"></td>
+                
+            </tr>
+            <!-- <br>
+            <br> -->
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password"  name="password" placeholder="Enter the password" required autocomplete="off" style="height: 30px;"></td>
+                <td><span id="TTT"></span></td>
+            </tr>
+        <br><br><br><br>
+            <tr>
+            
+            <td></td>
+            
+            <td><a href="#"></a><button type="submit"class="btn btn-primary">Submit</button></td>
+            </tr>
+            
+            
+            <tr>
+                <td>
+
+                </td>
+            
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+           
+            </tr>
+            
+            
+
+    
+    </table>
+    </form>
+   </center>
+   &nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary" onclick="window.history.back();">Back</button>
+   
+
+    
+</body>
+</html>

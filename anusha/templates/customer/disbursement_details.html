@@ -1,0 +1,40 @@
+{% extends 'customer/disbursementdashboard.html' %}
+{% block content1 %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 style="margin-top: 20px; text-align: center;">Disbursement Details Form</h3>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row mt-3">
+        <div class="col-md-6">
+            {{ details_form.bank_nbfc_name|as_crispy_field }}
+                {{ details_form.bank_loginid|as_crispy_field }}
+                {{ details_form.location|as_crispy_field }}
+                {{ details_form.loan_amount|as_crispy_field }}
+                {{ details_form.disbursement_date|as_crispy_field }}
+                {{ details_form.tenure|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+               {{ details_form.roi|as_crispy_field }}
+                {{ details_form.insurance|as_crispy_field }}
+                {{ details_form.net_disbursement|as_crispy_field }}
+                {{ details_form.bank_person_name|as_crispy_field }}
+                {{ details_form.mobile_no|as_crispy_field }}
+                {{ details_form.comment|as_crispy_field }}
+
+        </div>
+        </div>
+        <center><button type="submit" class="btn btn-primary">submit</button></center>
+    </form>
+    
+</body>
+</html>
+{% endblock %}
